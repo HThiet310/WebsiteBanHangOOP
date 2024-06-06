@@ -4,7 +4,7 @@ namespace Dell\Asmphp2\Controllers\Client;
 
 use Dell\Asmphp2\Commons\Controller;
 
-class ContactControler extends Controller
+class ContactController extends Controller
 {
     public function index()
     {

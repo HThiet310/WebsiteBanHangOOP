@@ -6,7 +6,7 @@ use Dell\Asmphp2\Commons\Controller;
 use Dell\Asmphp2\Models\Category;
 use Dell\Asmphp2\Models\Product;
 
-class ProductController extends Controller
+class CategoryController extends Controller
 {
     private Product $product;
     private Category $category;

@@ -396,7 +396,7 @@ html {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 1200px;
-    gap: 10px;
+    /* gap: 10px; */
     margin: 0 auto;
 }
 
