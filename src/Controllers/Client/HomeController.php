@@ -18,16 +18,6 @@ class HomeController extends Controller
         $this->product = new Product();
         $this->category = new Category();
     }
-
-    // public function index()
-    // {
-    //     [$products, $totalPage] = $this->product->paginate($_GET['page'] ?? 1);
-
-    //     $this->renderViewClient('products.index', [
-    //         'products' => $products,
-    //         'totalPage' => $totalPage
-    //     ]);
-    // }
     public function index()
     {
     $name = '';

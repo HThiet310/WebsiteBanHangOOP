@@ -90,7 +90,7 @@
                     <div class="item-image-product" data-aos="fade-up">
                         <div class="test">
                              <!-- test link ảnh tạm thời -->
-                            <img src="{{ asset('assets/client/src/img/product-2.webp') }}" width="100%" alt="">
+                            <img src="{{ asset($product['img_thumbnail']) }}" width="100%" alt="">
                         </div>
                         <p><a onclick="showProduct()" href="{{ url('products/' . $product['id']) }}">Quick View</a></p>
                         <div class="name-item-image-product">
