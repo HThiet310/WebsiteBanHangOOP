@@ -8,6 +8,7 @@
 
     @include('layouts.partials.head')
     <title>@yield('title')</title>
+    @include('layouts.partials.head')
 </head>
 
 <body>
@@ -17,7 +18,7 @@
 
 
         <!-- dùng header -->
-
+        @include('layouts.partials.header')
         
 
         {{-- MainContent --}}
