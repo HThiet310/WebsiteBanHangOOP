@@ -18,10 +18,10 @@ class HomeController extends Controller
         $this->product = new Product();
         $this->category = new Category();
     }
-    public function index($page = 1)
+    public function index()
 {
     // Lấy dữ liệu sản phẩm với phân trang
-    list($products, $totalPage) = $this->product->paginate($page);
+    list($products, $totalPage) = $this->product->paginate(1,2);
 
     // Lấy tất cả danh mục
     $categories = $this->category->all();
@@ -31,14 +31,7 @@ class HomeController extends Controller
         'products' => $products,
         'categories' => $categories,
         'totalPage' => $totalPage,
-        'currentPage' => $page
+        // 'currentPage' => $page
     ]);
 }
-    // public function pagination(){
-    //     $products = $this->product->paginate(1, 2);
-
-    //     $this->renderViewClient('home', [    
-    //         'products' => $products
-    //     ]);
-    // }
 }
