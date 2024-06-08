@@ -38,6 +38,7 @@
                                     <th>Ảnh</th>
                                     <th>Họ tên</th>
                                     <th>Email</th>
+                                    <th>Chức vụ</th>
                                     <th>Ngày thêm</th>
                                     <th>Thao tác</th>
                                 </tr>
@@ -52,6 +53,7 @@
                                         </td>
                                         <td><?= $user['name'] ?></td>
                                         <td><?= $user['email'] ?></td>
+                                        <td><?= $user['type'] ?></td>
                                         <td><?= $user['created_at'] ?></td>
                                         <td>
 

@@ -18,11 +18,12 @@ class UserControler extends Controller
 
     public function index()
     {
-        [$users, $totalPage] = $this->user->paginate($_GET['page'] ?? 1);
+        // [$users, $totalPage] = $this->user->paginate($_GET['page'] ?? 1);
+        $users = $this->user->all();
 
         $this->renderViewAdmin('users.index', [
             'users' => $users,
-            'totalPage' => $totalPage
+            // 'totalPage' => $totalPage
         ]);
     }
 
@@ -39,6 +40,7 @@ class UserControler extends Controller
             'email'                 => 'required|email',
             'password'              => 'required|min:6',
             'confirm_password'      => 'required|same:password',
+            'type'                  => 'required|in:admin,user',
             'avatar'                => 'uploaded_file:0,2M,png,jpg,jpeg',
         ]);
         $validation->validate();
@@ -52,6 +54,7 @@ class UserControler extends Controller
             $data = [
                 'name'     => $_POST['name'],
                 'email'    => $_POST['email'],
+                'type'     => $_POST['type'],
                 'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
             ];
 
@@ -107,6 +110,7 @@ class UserControler extends Controller
             'name'                  => 'required|max:50',
             'email'                 => 'required|email',
             'password'              => 'min:6',
+            'type'                  => 'required|in:admin,user',
             'avatar'                => 'uploaded_file:0,2M,png,jpg,jpeg',
         ]);
         $validation->validate();
@@ -120,6 +124,7 @@ class UserControler extends Controller
             $data = [
                 'name'     => $_POST['name'],
                 'email'    => $_POST['email'],
+                'type'     => $_POST['type'],
                 'password' => !empty($_POST['password'])
                     ? password_hash($_POST['password'], PASSWORD_DEFAULT) : $user['password'],
             ];

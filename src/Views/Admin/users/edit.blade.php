@@ -1,57 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cập nhật người dùng: {{ $user['name'] }}</title>
+@section('title')
+Thêm người dùng mới
+@endsection
 
-    <!-- Latest compiled and minified CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+@section('content')
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
+<div class="row justify-content-center">
+    <div class="col-lg-12">
+        <div class="white_card card_height_100 mb_30">
+            <div class="white_card_header">
+                <div class="box_header m-0">
+                    <div class="main-title">
+                        <h1 class="m-0">Thêm mới người dùng</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="white_card_body">
 
-<body>
-    <h1>Cập nhật người dùng: {{ $user['name'] }}</h1>
+                @if (!empty($_SESSION['errors']))
+                <div class="alert alert-warning">
+                    <ul>
+                        @foreach ($_SESSION['errors'] as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
 
-	@if (!empty($_SESSION['errors']))
-		<div class="alert alert-warning">
-			<ul>
-				@foreach ($_SESSION['errors'] as $error)
-					<li>{{ $error }}</li>
-				@endforeach
-			</ul>
+                    @php
+                    unset($_SESSION['errors']);
+                    @endphp
+                </div>
+                @endif
 
-			@php
-				unset($_SESSION['errors']);
-			@endphp
-		</div>
-	@endif
+                <div class="table-responsive">
+                    <form class="mx-1 mx-md-4" action="{{ url('admin/users/store') }}" enctype="multipart/form-data" method="POST">
 
-    <form action="{{ url("admin/users/{$user['id']}/update") }}" enctype="multipart/form-data" method="POST">
-        <div class="mb-3 mt-3">
-            <label for="name" class="form-label">Name:</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter name" value="{{ $user['name'] }}" name="name">
+                        <div class="d-flex flex-row align-items-center mb-4">
+                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                            <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                <label class="form-label" for="name">Họ tên:</label>
+                                <input type="text" id="name" name="name" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row align-items-center mb-4">
+                            <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                <label class="form-label" for="avatar" name="avatar">Chọn ảnh:</label>
+                                <input type="file" name="avatar" id="avatar" onchange="loadFile(event)" required multiple>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row align-items-center mb-4">
+                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                            <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                <label class="form-label" for="email">Email:</label>
+                                <input type="email" id="email" name="email" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row align-items-center mb-4">
+                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                            <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                <label class="form-label" for="password">Mật khẩu:</label>
+                                <input type="password" id="password" name="password" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row align-items-center mb-4">
+                            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                            <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                <label class="form-label" for="confirm_password">Nhập lại mật khẩu:</label>
+                                <input type="password" id="confirm_password" name="confirm_password" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row align-items-center mb-4">
+                            <i class="fas Female fa-lg me-3 fa-fw"></i>
+                            <select class="form-select" aria-label="Default select example" name="type" id="type">
+                                <option selected>Chọn chức vụ</option>
+                                <option value="admin" name="type" id="type">Admin</option>
+                                <option value="member" name="type" id="type">Member</option>
+                            </select>
+                        </div>
+
+                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Thêm mới</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="mb-3 mt-3">
-            <label for="email" class="form-label">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" value="{{ $user['email'] }}" name="email">
-        </div>
-        <div class="mb-3 mt-3">
-            <label for="avatar" class="form-label">Avatar:</label>
-            <input type="file" class="form-control" id="avatar" placeholder="Enter avatar" name="avatar">
-            <img src="{{ asset($user['avatar']) }}" alt="" width="100px">
-        </div>
-        <div class="mb-3 mt-3">
-            <label for="password" class="form-label">Password:</label>
-            <input type="text" class="form-control" id="password" placeholder="Enter password" name="password">
-        </div>
+    </div>
+</div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</body>
-
-</html>
+@endsection
