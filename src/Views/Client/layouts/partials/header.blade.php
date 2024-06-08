@@ -2,10 +2,12 @@
 
     <div id="header">
 
-        <div class="sub-nav" id="nav" style="background-color: rgb(255, 255, 255); top: 0px; padding: 10px 0px 5px; box-shadow: gray 0px 2px 10px;">
+        <div class="sub-nav" id="nav"
+            style="background-color: rgb(255, 255, 255); top: 0px; padding: 10px 0px 5px; box-shadow: gray 0px 2px 10px;">
             <div class="nav">
                 <div class="photo-logo">
-                    <a href="{{ asset('') }}"><img src="{{ asset('assets/client/src/img/logo.webp') }}" style="cursor: pointer;" alt="" /></a>
+                    <a href="{{ asset('') }}"><img src="{{ asset('assets/client/src/img/logo.webp') }}"
+                            style="cursor: pointer;" alt="" /></a>
                 </div>
                 <!-- dùng thẻ nav -->
                 <nav>
@@ -20,7 +22,7 @@
                                     </ul>
                                 </a>
                             </li>
-                            <li><a href="{{ url('products') }}">Shop</a></li>
+                            <li><a href="{{ url('product') }}">Shop</a></li>
                             <li><a href="features.html">Features</a></li>
                             <li><a href="blog.html">Blog</a></li>
                             <li><a href="{{ url('about') }}">About</a></li>
@@ -49,18 +51,8 @@
 
 
         </div>
-        <div class="slider">
-
-            <div class="title-slider">
-                <div class="text-animation">
-                    <h5>Men Collection 2018</h5>
-                    <h3>NEW ARRIVALS</h3>
-                    <button>SHOP NOW</button>
-                </div>
-            </div>
-
-        </div>
         
+
 
     </div>
 

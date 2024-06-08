@@ -10,21 +10,33 @@ class ProductController extends Controller
 {
     private Product $product;
     private Category $category;
+    public function __construct()
+    {
+        $this->product = new Product();
+        $this->category = new Category();
+    }
     public function index()
-    {
-        
-    }
+{
+    // Lấy dữ liệu sản phẩm với phân trang
+    list($products, $totalPage) = $this->product->paginate(1,10);
 
-    public function detail($id)
-    {
-        
-    }
-    // public function show($id)
-    // {
-    //     $product = $this->product->findByID($id);
+    // Lấy tất cả danh mục
+    $categories = $this->category->all();
 
-    //     $this->renderViewAdmin('products.show', [
-    //         'product' => $product
-    //     ]);
-    // }
+    // Truyền dữ liệu vào view
+    $this->renderViewClient('product', [
+        'products' => $products,
+        // 'currentPage' => $page
+        'categories' => $categories,
+        'totalPage' => $totalPage
+    ]);
+}
+public function detail($id)
+    {
+        $product = $this->product->findByID($id);
+
+        $this->renderViewClient('productDetail', [
+            'product' => $product
+        ]);
+    }
 }
