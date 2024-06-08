@@ -319,7 +319,7 @@ html{
    
     position: absolute;
     z-index: 1;
-    top: 30%;
+    top: 5% !important;
     
 }
 .text-animation{

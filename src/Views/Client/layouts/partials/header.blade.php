@@ -60,9 +60,7 @@
             </div>
 
         </div>
-        <div class="background">
-            <img src="{{ asset('assets/client/src/img/slide1.webp') }}" alt="">
-        </div>
+        
 
     </div>
 

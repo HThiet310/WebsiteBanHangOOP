@@ -20,15 +20,18 @@ class HomeController extends Controller
     }
     public function index()
     {
-    $name = '';
-    $products = $this->product->all();
-    $categories = $this->category->all();
+        $name = '';
+        $products = $this->product->all();
+        // Helper::debug($products);
+        $products = $this->product->paginate(1, 2);
 
-    $this->renderViewClient('home', [
-        'name' => $name,
-        'products' => $products,
-        'categories' => $categories,
-    ]);
+        $categories = $this->category->all();
 
+
+        $this->renderViewClient('home', [
+            'name' => $name,
+            'products' => $products,
+            'categories' => $categories,
+        ]);
     }
 }

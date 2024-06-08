@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+    <div class="background">
+        <img src="{{ asset('assets/client/src/img/slide1.webp') }}" alt="">
+    </div>
     <div id="main">
 
         <div id="content">
@@ -68,10 +71,10 @@
                     <div class="menu-product">
                         <ul>
                             @foreach ($categories as $category)
-                            <!-- Chưa truyền dữ liệu detail cho category -->
-                            <li><a href="{{ url('categories/' . $category['id']) }}">{{ $category['name']}}</a></li> 
+                                <!-- Chưa truyền dữ liệu detail cho category -->
+                                <li><a href="{{ url('categories/' . $category['id']) }}">{{ $category['name'] }}</a></li>
                             @endforeach
-                            
+
                         </ul>
                     </div>
                     <div class="filter-product">
@@ -87,16 +90,17 @@
 
             <div class="image-product">
                 @foreach ($products as $product)
+                <?php //print_r($product) ?>
                     <div class="item-image-product" data-aos="fade-up">
                         <div class="test">
-                             <!-- test link ảnh tạm thời -->
-                            <img src="{{ asset($product['img_thumbnail']) }}" width="100%" alt="">
+                            <!-- test link ảnh tạm thời -->
+                            <img src="{{ asset('assets/client/src/img/product-3.webp') }}" width="100%" alt="">
                         </div>
                         <p><a onclick="showProduct()" href="{{ url('products/' . $product['id']) }}">Quick View</a></p>
                         <div class="name-item-image-product">
                             <div class="price-name-item-image-product">
                                 <p><a href="{{ url('products/' . $product['id']) }}">{{ $product['name'] }}</a></p>
-                                <p>{{ $product['price'] }}</p>
+                                <p>{{ $product['price_regular'] }}</p>
                             </div>
                             <div class="heart-name-item-image-product">
 
@@ -105,6 +109,7 @@
                         </div>
                     </div>
                 @endforeach
+                
 
 
                 {{-- <div class="item-image-product" data-aos="fade-down">
