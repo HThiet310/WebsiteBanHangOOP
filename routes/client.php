@@ -20,20 +20,19 @@ use Dell\Asmphp2\Controllers\Client\ContactController;
 use Dell\Asmphp2\Controllers\Client\ProductController;
 
 
-$router->get('/',               HomeController::class       . '@index');
-$router->get('/about',          AboutController::class      . '@index');
+$router->get('/',                   HomeController::class       . '@index');
+$router->get('/about',              AboutController::class      . '@index');
 
-// $router->get('/contact',        HomeController::class       . '@index');
-// $router->get('/contact/store',  HomeController::class       . '@index');
+// Contact
+$router->get('/contact',            HomeController::class       . '@index');
+$router->get('/contact/store',      HomeController::class       . '@index');
 
-// $router->get('/product',        ProductController::class    . '@index');
-// $router->get('/product/{id}',   ProductController::class    . '@detail');
+// Product
+$router->get('/product',            ProductController::class    . '@index');
+$router->get('/product/list',       ProductController::class    . '@list');
+$router->get('/product/{id}',       ProductController::class    . '@detail');
 
-$router->get( '/contact',           ContactController::class    . '@index');
-$router->post( '/contact/store',    ContactController::class    . '@store');
+// Category
+$router->get('/categories',         CategoryController::class    . '@index');
+$router->get('/categories/{id}',    CategoryController::class    . '@detail');
 
-$router->get( '/categories',          CategoryController::class    . '@index');
-$router->get( '/categories/{id}',     CategoryController::class    . '@detail');
-
-$router->get( '/products',          ProductController::class    . '@index');
-$router->get( '/products/{id}',     ProductController::class    . '@detail');

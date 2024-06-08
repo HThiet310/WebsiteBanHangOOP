@@ -44,11 +44,11 @@
 
     <div class="local-footer">
       <div class="image-logo-footer">
-        <img src="src/img/ft1.webp" alt="">
-        <img src="src/img/ft2.webp" alt="">
-        <img src="src/img/ft3.webp" alt="">
-        <img src="src/img/ft4.webp" alt="">
-        <img src="src/img/ft5.webp" alt="">
+        <img src="{{ asset('assets/src/img/ft1.webp') }}" alt="">
+        <img src="{{ asset('assets/src/img/ft2.webp') }}" alt="">
+        <img src="{{ asset('assets/src/img/ft3.webp') }}" alt="">
+        <img src="{{ asset('assets/src/img/ft4.webp') }}" alt="">
+        <img src="{{ asset('assets/src/img/ft5.webp') }}" alt="">
       </div>
       <div class="text-local-footer">
         <p>Copyright ©2022 All rights reserved | This template is made with <i class='bx bx-heart'></i> by
