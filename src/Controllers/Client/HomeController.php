@@ -25,6 +25,8 @@ class HomeController extends Controller
         // Helper::debug($products);
         $products = $this->product->paginate(1, 2);
 
+        // $products = $this->product->findByID($_POST['id']);
+
         $categories = $this->category->all();
 
 
@@ -32,6 +34,14 @@ class HomeController extends Controller
             'name' => $name,
             'products' => $products,
             'categories' => $categories,
+        ]);
+        // Helper::debug($products);
+    }
+    public function pagination(){
+        $products = $this->product->paginate(1, 2);
+
+        $this->renderViewClient('home', [    
+            'products' => $products
         ]);
     }
 }

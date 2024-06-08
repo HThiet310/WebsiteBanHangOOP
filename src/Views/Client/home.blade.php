@@ -89,18 +89,18 @@
             </div>
 
             <div class="image-product">
-                @foreach ($products as $product)
-                <?php //print_r($product) ?>
+                @foreach ($products as $product => $value)
+                <?php //print_r($_SESSION['product']['id']) ?>
                     <div class="item-image-product" data-aos="fade-up">
                         <div class="test">
                             <!-- test link ảnh tạm thời -->
                             <img src="{{ asset('assets/client/src/img/product-3.webp') }}" width="100%" alt="">
                         </div>
-                        <p><a onclick="showProduct()" href="{{ url('products/' . $product['id']) }}">Quick View</a></p>
+                        <p><a onclick="showProduct()" href="{{ url('products/' . $value['id']) }}">Quick View</a></p>
                         <div class="name-item-image-product">
                             <div class="price-name-item-image-product">
-                                <p><a href="{{ url('products/' . $product['id']) }}">{{ $product['name'] }}</a></p>
-                                <p>{{ $product['price_regular'] }}</p>
+                                <p><a href="{{ url('products/' . $product['id']) }}">{{ $value['name'] }}</a></p>
+                                <p>{{ $value['price_regular'] }}</p>
                             </div>
                             <div class="heart-name-item-image-product">
 

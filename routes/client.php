@@ -29,7 +29,6 @@ $router->get('/contact/store',      HomeController::class       . '@index');
 
 // Product
 $router->get('/product',            ProductController::class    . '@index');
-$router->get('/product/list',       ProductController::class    . '@list');
 $router->get('/product/{id}',       ProductController::class    . '@detail');
 
 // Category

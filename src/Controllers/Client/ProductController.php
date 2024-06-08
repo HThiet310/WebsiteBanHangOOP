@@ -19,12 +19,12 @@ class ProductController extends Controller
     {
         
     }
-    public function show($id)
-    {
-        $product = $this->product->findByID($id);
+    // public function show($id)
+    // {
+    //     $product = $this->product->findByID($id);
 
-        $this->renderViewAdmin('products.show', [
-            'product' => $product
-        ]);
-    }
+    //     $this->renderViewAdmin('products.show', [
+    //         'product' => $product
+    //     ]);
+    // }
 }
