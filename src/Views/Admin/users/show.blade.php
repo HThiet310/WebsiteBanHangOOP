@@ -17,7 +17,7 @@ Chi tiết tài khoản - {{ $user['email'] }}
                 </div>
             </div>
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table table-striped" style="font-size: 17px">
                     <thead>
                         <tr>
                             <th>Trường</th>

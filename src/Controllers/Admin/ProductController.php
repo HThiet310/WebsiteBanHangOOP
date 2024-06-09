@@ -23,7 +23,7 @@ class ProductController extends Controller
     public function index()
     {
         [$products, $totalPage] = $this->product->paginate($_GET['page'] ?? 1);
-        
+
         $this->renderViewAdmin('products.index', [
             'products' => $products,
             'totalPage' => $totalPage
@@ -34,10 +34,8 @@ class ProductController extends Controller
     {
         $categories = $this->category->all();
 
-        $categoryPluck = array_column($categories, 'name', 'id');
-
         $this->renderViewAdmin('products.create', [
-            'categories' => $categoryPluck
+            'categories' => $categories
         ]);
     }
 
@@ -46,9 +44,11 @@ class ProductController extends Controller
         $validator = new Validator;
         $validation = $validator->make($_POST + $_FILES, [
             'name'                  => 'required|max:50',
-            'price'                 => 'required|numeric',
-            'id_category'           => 'required|numeric',
-            'quantity'              => 'required|numeric',
+            'category_id'           => 'required|numeric',
+            'price_regular'         => 'required|numeric',
+            'price_sale'            => 'required|numeric',
+            'overview'              => 'required',
+            'content'               => 'required',
             'img_thumbnail'         => 'uploaded_file:0,2M,png,jpg,jpeg',
         ]);
         $validation->validate();
@@ -61,10 +61,11 @@ class ProductController extends Controller
         } else {
             $data = [
                 'name'          => $_POST['name'],
-                'price'         => $_POST['price'],
-                'id_category'   => $_POST['id_category'],
-                'quantity'      => $_POST['quantity'],
-                'description'   => $_POST['description'],
+                'category_id'   => $_POST['category_id'],
+                'price_regular' => $_POST['price_regular'],
+                'price_sale'    => $_POST['price_sale'],
+                'overview'      => $_POST['overview'],
+                'content'       => $_POST['content'],
             ];
 
             if (isset($_FILES['img_thumbnail']) && $_FILES['img_thumbnail']['size'] > 0) {
@@ -103,11 +104,9 @@ class ProductController extends Controller
         $product = $this->product->findByID($id);
         $categories = $this->category->all();
 
-        $categoryPluck = array_column($categories, 'name', 'id');
-
         $this->renderViewAdmin('products.edit', [
             'product' => $product,
-            'categories' => $categoryPluck
+            'categories' => $categories
         ]);
     }
 
@@ -116,9 +115,11 @@ class ProductController extends Controller
         $validator = new Validator;
         $validation = $validator->make($_POST + $_FILES, [
             'name'                  => 'required|max:50',
-            'price'                 => 'required|numeric',
-            'id_category'           => 'required|numeric',
-            'quantity'              => 'required|numeric',
+            'category_id'           => 'required|numeric',
+            'price_regular'         => 'required|numeric',
+            'price_sale'            => 'required|numeric',
+            'overview'              => 'required',
+            'content'               => 'required',
             'img_thumbnail'         => 'uploaded_file:0,2M,png,jpg,jpeg',
         ]);
         $validation->validate();
@@ -131,10 +132,11 @@ class ProductController extends Controller
         } else {
             $data = [
                 'name'          => $_POST['name'],
-                'price'         => $_POST['price'],
-                'id_category'   => $_POST['id_category'],
-                'quantity'      => $_POST['quantity'],
-                'description'   => $_POST['description'],
+                'category_id'   => $_POST['category_id'],
+                'price_regular' => $_POST['price_regular'],
+                'price_sale'    => $_POST['price_sale'],
+                'overview'      => $_POST['overview'],
+                'content'       => $_POST['content'],
             ];
 
             if (isset($_FILES['img_thumbnail']) && $_FILES['img_thumbnail']['size'] > 0) {
