@@ -36,7 +36,6 @@ Thêm người dùng mới
                     <form class="mx-1 mx-md-4" action="{{ url('admin/users/store') }}" enctype="multipart/form-data" method="POST">
 
                         <div class="d-flex flex-row align-items-center mb-4">
-                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                 <label class="form-label" for="name">Họ tên:</label>
                                 <input type="text" id="name" name="name" class="form-control" />
@@ -45,13 +44,12 @@ Thêm người dùng mới
 
                         <div class="d-flex flex-row align-items-center mb-4">
                             <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                <label class="form-label" for="avatar" name="avatar">Chọn ảnh:</label>
-                                <input type="file" name="avatar" id="avatar" onchange="loadFile(event)" required multiple>
+                                <label for="avatar" class="form-label">Ảnh đại diện:</label>
+                                <input type="file" class="form-control" id="avatar" placeholder="Enter avatar" name="avatar">
                             </div>
                         </div>
 
                         <div class="d-flex flex-row align-items-center mb-4">
-                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                             <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                 <label class="form-label" for="email">Email:</label>
                                 <input type="email" id="email" name="email" class="form-control" />
@@ -59,7 +57,6 @@ Thêm người dùng mới
                         </div>
 
                         <div class="d-flex flex-row align-items-center mb-4">
-                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                             <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                 <label class="form-label" for="password">Mật khẩu:</label>
                                 <input type="password" id="password" name="password" class="form-control" />
@@ -67,7 +64,6 @@ Thêm người dùng mới
                         </div>
 
                         <div class="d-flex flex-row align-items-center mb-4">
-                            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                             <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                 <label class="form-label" for="confirm_password">Nhập lại mật khẩu:</label>
                                 <input type="password" id="confirm_password" name="confirm_password" class="form-control" />
@@ -75,7 +71,6 @@ Thêm người dùng mới
                         </div>
 
                         <div class="d-flex flex-row align-items-center mb-4">
-                            <i class="fas Female fa-lg me-3 fa-fw"></i>
                             <select class="form-select" aria-label="Default select example" name="type" id="type">
                                 <option selected>Chọn chức vụ</option>
                                 <option value="admin" name="type" id="type">Admin</option>

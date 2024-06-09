@@ -39,11 +39,13 @@
                     <div class="icons cart">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </div>
-                    <div class="icons heart">
-                        <a href="signin.html"> <i class='bx bxs-user'></i></a>
-                    </div>
                     <div class="toggle">
-                        <i class='bx bx-sun'></i>
+                        @if(!isset($_SESSION['user']))
+                            <a href="{{ url('login') }}" style="font-size: 20px;">Đăng nhập</a>
+                        @endif
+                        @if(isset($_SESSION['user']))
+                            <a href="{{ url('logout') }}" style="font-size: 20px;">Đăng xuất</a>
+                        @endif
                     </div>
                 </div>
             </div>

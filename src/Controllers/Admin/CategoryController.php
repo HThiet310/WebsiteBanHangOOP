@@ -16,5 +16,8 @@ class CategoryController extends Controller
         $this->category = new Category();
     }
 
-    
+    public function index()
+    {
+        $this->renderViewAdmin('index');
+    }
 }

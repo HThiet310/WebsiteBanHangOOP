@@ -18,12 +18,12 @@ class UserControler extends Controller
 
     public function index()
     {
-        // [$users, $totalPage] = $this->user->paginate($_GET['page'] ?? 1);
+        [$users, $totalPage] = $this->user->paginate($_GET['page'] ?? 1);
         $users = $this->user->all();
 
         $this->renderViewAdmin('users.index', [
             'users' => $users,
-            // 'totalPage' => $totalPage
+            'totalPage' => $totalPage
         ]);
     }
 
@@ -40,7 +40,7 @@ class UserControler extends Controller
             'email'                 => 'required|email',
             'password'              => 'required|min:6',
             'confirm_password'      => 'required|same:password',
-            'type'                  => 'required|in:admin,user',
+            'type'                  => 'required|in:admin,member',
             'avatar'                => 'uploaded_file:0,2M,png,jpg,jpeg',
         ]);
         $validation->validate();
@@ -110,7 +110,7 @@ class UserControler extends Controller
             'name'                  => 'required|max:50',
             'email'                 => 'required|email',
             'password'              => 'min:6',
-            'type'                  => 'required|in:admin,user',
+            'type'                  => 'required|in:admin,member',
             'avatar'                => 'uploaded_file:0,2M,png,jpg,jpeg',
         ]);
         $validation->validate();
@@ -127,6 +127,7 @@ class UserControler extends Controller
                 'type'     => $_POST['type'],
                 'password' => !empty($_POST['password'])
                     ? password_hash($_POST['password'], PASSWORD_DEFAULT) : $user['password'],
+                'is_active' => 1
             ];
 
             $flagUpload = false;
@@ -160,7 +161,7 @@ class UserControler extends Controller
             $_SESSION['status'] = true;
             $_SESSION['msg'] = 'Thao tác thành công';
 
-            header('Location: ' . url("admin/users/{$user['id']}/edit"));
+            header('Location: ' . url("admin/users"));
             exit;
         }
     }

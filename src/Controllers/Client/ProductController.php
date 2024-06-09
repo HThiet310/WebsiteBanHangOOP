@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index()
 {
     // Lấy dữ liệu sản phẩm với phân trang
-    list($products, $totalPage) = $this->product->paginate(1,10);
+    [$products, $totalPage] = $this->product->paginate($_GET['page'] ?? 1, 5);
 
     // Lấy tất cả danh mục
     $categories = $this->category->all();

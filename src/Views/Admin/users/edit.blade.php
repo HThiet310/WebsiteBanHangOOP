@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Thêm người dùng mới
+Cập nhật tài khoản
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@ Thêm người dùng mới
             <div class="white_card_header">
                 <div class="box_header m-0">
                     <div class="main-title">
-                        <h1 class="m-0">Thêm mới người dùng</h1>
+                        <h1 class="m-0">Cập nhật tài khoản</h1>
                     </div>
                 </div>
             </div>
@@ -33,33 +33,31 @@ Thêm người dùng mới
                 @endif
 
                 <div class="table-responsive">
-                    <form class="mx-1 mx-md-4" action="{{ url('admin/users/store') }}" enctype="multipart/form-data" method="POST">
+                    <form class="mx-1 mx-md-4" action="{{ url('admin/users/' . $user['id'] . '/update') }}" enctype="multipart/form-data" method="POST">
 
                         <div class="d-flex flex-row align-items-center mb-4">
-                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                 <label class="form-label" for="name">Họ tên:</label>
-                                <input type="text" id="name" name="name" class="form-control" />
+                                <input type="text" id="name" name="name" class="form-control" value="{{ $user['name'] }}" />
                             </div>
                         </div>
 
                         <div class="d-flex flex-row align-items-center mb-4">
                             <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                <label class="form-label" for="avatar" name="avatar">Chọn ảnh:</label>
-                                <input type="file" name="avatar" id="avatar" onchange="loadFile(event)" required multiple>
+                                <label for="avatar" class="form-label">Ảnh đại diện:</label>
+                                <input type="file" class="form-control" id="avatar" placeholder="Enter avatar" name="avatar">
+                                <img src="{{ asset($user['avatar']) }}" width="100px" alt="">
                             </div>
                         </div>
 
                         <div class="d-flex flex-row align-items-center mb-4">
-                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                             <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                 <label class="form-label" for="email">Email:</label>
-                                <input type="email" id="email" name="email" class="form-control" />
+                                <input type="email" id="email" name="email" class="form-control" value="{{ $user['email'] }}" />
                             </div>
                         </div>
 
                         <div class="d-flex flex-row align-items-center mb-4">
-                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                             <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                 <label class="form-label" for="password">Mật khẩu:</label>
                                 <input type="password" id="password" name="password" class="form-control" />
@@ -67,24 +65,14 @@ Thêm người dùng mới
                         </div>
 
                         <div class="d-flex flex-row align-items-center mb-4">
-                            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                            <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                <label class="form-label" for="confirm_password">Nhập lại mật khẩu:</label>
-                                <input type="password" id="confirm_password" name="confirm_password" class="form-control" />
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-row align-items-center mb-4">
-                            <i class="fas Female fa-lg me-3 fa-fw"></i>
-                            <select class="form-select" aria-label="Default select example" name="type" id="type">
-                                <option selected>Chọn chức vụ</option>
+                            <select class="form-select" aria-label="Default select example" name="type" id="type" value="{{ $user['type'] }}">
                                 <option value="admin" name="type" id="type">Admin</option>
                                 <option value="member" name="type" id="type">Member</option>
                             </select>
                         </div>
 
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Thêm mới</button>
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Cập nhật</button>
                         </div>
 
                     </form>
