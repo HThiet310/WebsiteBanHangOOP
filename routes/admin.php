@@ -10,9 +10,11 @@
 //      PUT     -> USER/ID      -> UPDATE ($id)   -> LƯU DỮ LIỆU TỪ FORM CẬP NHẬT VÀO DB
 //      DELETE  -> USER/ID      -> DELETE ($id)   -> XÓA BẢ
 
+use Dell\Asmphp2\Controllers\Admin\CategoryController;
 use Dell\Asmphp2\Controllers\Admin\DashboardController;
 use Dell\Asmphp2\Controllers\Admin\ProductController;
 use Dell\Asmphp2\Controllers\Admin\UserControler;
+use Dell\Asmphp2\Models\Category;
 
 $router->mount('/admin', function () use ($router) {
 
@@ -39,5 +41,16 @@ $router->mount('/admin', function () use ($router) {
         $router->get('/{id}/edit',      ProductController::class . '@edit');
         $router->post('/{id}/update',   ProductController::class . '@update');
         $router->get('/{id}/delete',    ProductController::class . '@delete');
+    });
+
+    // CRUD CATEGORY
+    $router->mount('/categories', function () use ($router) {
+        $router->get('/',               CategoryController::class . '@index');
+        $router->get('/create',         CategoryController::class . '@create');
+        $router->post('/store',         CategoryController::class . '@store');
+        $router->get('/{id}/show',      CategoryController::class . '@show');
+        $router->get('/{id}/edit',      CategoryController::class . '@edit');
+        $router->post('/{id}/update',   CategoryController::class . '@update');
+        $router->get('/{id}/delete',    CategoryController::class . '@delete');
     });
 });

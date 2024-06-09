@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Chi tiết sản sản phẩm - {{ $product['name'] }}
+Chi tiết sản phẩm - {{ $product['name'] }}
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@ Chi tiết sản sản phẩm - {{ $product['name'] }}
             <div class="white_card_header">
                 <div class="box_header m-0">
                     <div class="main-title">
-                        <h1 class="m-0">Chi tiết sản sản phẩm - {{ $product['name'] }}</h1>
+                        <h1 class="m-0">Chi tiết sản phẩm - {{ $product['name'] }}</h1>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@ Chi tiết sản sản phẩm - {{ $product['name'] }}
                             <td>{{ $field }}</td>
                             <td>
                                 @if ($field === 'img_thumbnail')
-                                <img src="{{ asset($value) }}" alt="user Image" style="max-width: 100px;">
+                                <img src="{{ asset($value) }}" alt="product Image" style="max-width: 100px;">
                                 @else
                                 {{ $value }}
                                 @endif

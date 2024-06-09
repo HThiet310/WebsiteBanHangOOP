@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Cập nhật Danh mục - {{ $category['name'] }}
+Thêm mới Danh mục
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@ Cập nhật Danh mục - {{ $category['name'] }}
             <div class="white_card_header">
                 <div class="box_header m-0">
                     <div class="main-title">
-                        <h1 class="m-0">Cập nhật Danh mục - {{ $category['name'] }}</h1>
+                        <h1 class="m-0">Thêm mới Danh mục</h1>
                     </div>
                 </div>
             </div>
@@ -33,12 +33,12 @@ Cập nhật Danh mục - {{ $category['name'] }}
                 @endif
 
                 <div class="table-responsive">
-                    <form class="mx-1 mx-md-4" action="{{ url('admin/categories/' . $category['id'] . '/update') }}" enctype="multipart/form-data" method="POST">
+                    <form class="mx-1 mx-md-4" action="{{ url('admin/categories/store') }}" enctype="multipart/form-data" method="POST">
 
                         <div class="d-flex flex-row align-items-center mb-4">
                             <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                 <label class="form-label" for="name">Tên danh mục:</label>
-                                <input type="text" id="name" name="name" class="form-control" value="{{ $category['name'] }}" />
+                                <input type="text" id="name" name="name" class="form-control" />
                             </div>
                         </div>
 
@@ -46,12 +46,11 @@ Cập nhật Danh mục - {{ $category['name'] }}
                             <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                 <label for="img_thumbnail" class="form-label">Ảnh danh mục:</label>
                                 <input type="file" class="form-control" id="img_thumbnail" placeholder="Enter img_thumbnail" name="img_thumbnail">
-                                <img src="{{ $category['img_thumbnail'] }}" alt="Ảnh danh mục" width="100px">
                             </div>
                         </div>
 
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Cập nhật</button>
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Thêm mới</button>
                         </div>
 
                     </form>
