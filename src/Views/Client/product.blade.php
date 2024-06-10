@@ -16,8 +16,6 @@
                             @foreach ($categories as $category)
                                 <li><a href="{{ url('categories/' . $category['id']) }}">{{ $category['name'] }}</a></li>
                             @endforeach
-
-                            <li><a href="">Watches</a></li>
                         </ul>
                     </div>
                     <div class="filter-product">
@@ -43,7 +41,7 @@
                         <div class="name-item-image-product">
                             <div class="price-name-item-image-product">
                                 <p><a href="{{ url('product/' . $product['id']) }}">{{ $product['name'] }}</a></p>
-                                <p>{{ $product['price'] }}</p>
+                                <p>{{ $product['price_regular'] }} vnđ</p>
                             </div>
                             <div class="heart-name-item-image-product">
 
@@ -57,26 +55,32 @@
                 </div>
             @endforeach
             <nav aria-label="Page navigation example">
+                <?php
+                $currentPage = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+                $prevPage = $currentPage > 1 ? $currentPage - 1 : 1;
+                $nextPage = $currentPage < $totalPage ? $currentPage + 1 : $totalPage;
+                ?>
                 <ul class="pagination justify-content-center">
-                    <li class="page-item ">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    <li class="page-item {{ $currentPage == 1 ? 'disabled' : '' }}">
+                        <a class="page-link" href="?page={{ $prevPage }}" tabindex="-1">Previous</a>
                     </li>
-                    @for ($page = 1; $page < $totalPage; $page++)
-                        <li class="page-item">
-                            <a class="page-link" href="<?php echo "?page=$page"; ?>"><?php echo $page; ?></a>
-                        </li>
+
+                    @for ($page = 1; $page <= $totalPage; $page++)
+                        @if ($page == $currentPage)
+                            <li class="page-item active">
+                                <a class="page-link" href="?page={{ $page }}">{{ $page }}</a>
+                            </li>
+                        @else
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ $page }}">{{ $page }}</a>
+                            </li>
+                        @endif
                     @endfor
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
+                    <li class="page-item {{ $currentPage == $totalPage ? 'disabled' : '' }}">
+                        <a class="page-link" href="?page={{ $nextPage }}">Next</a>
                     </li>
                 </ul>
             </nav>
-
-            <div class="btn-product" data-aos="zoom-in-right">
-                <a href="">LOAD MORE</a>
-            </div>
-
-
 
 
         </div>

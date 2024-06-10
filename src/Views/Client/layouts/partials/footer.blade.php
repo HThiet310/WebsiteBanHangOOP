@@ -50,11 +50,7 @@
         <img src="{{ asset('assets/src/img/ft4.webp') }}" alt="">
         <img src="{{ asset('assets/src/img/ft5.webp') }}" alt="">
       </div>
-      <div class="text-local-footer">
-        <p>Copyright ©2022 All rights reserved | This template is made with <i class='bx bx-heart'></i> by
-          <span style="color: #007bff;cursor: pointer;">Cường đẹp trai vkl</span>
-        </p>
-      </div>
+      
     </div>
 
     <div class="back-footer">
