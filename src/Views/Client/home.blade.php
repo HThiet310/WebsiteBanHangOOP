@@ -59,17 +59,17 @@ HomePage
         </div>
 
         <div class="image-product">
-            @foreach ($products as $value)
+            @foreach ($products as $product)
             <div class="item-image-product" data-aos="fade-up">
                 <div class="test">
                     <!-- test link ảnh tạm thời -->
-                    <img src="{{ asset($value['img_thumbnail']) }}" width="240px" height="300px" alt="">
+                    <a href="{{ url('product/' . $product['id']) }}"><img src="{{ asset($product['img_thumbnail']) }}" width="280px" height="300px" alt=""></a>
                 </div>
-                <p><a onclick="showProduct()" href="{{ url('products/' . $value['id']) }}">Quick View</a></p>
+                <p><a onclick="showProduct()" href="{{ url('cart/add') }}?quantity=1&productID={{ $product['id'] }}" >Thêm vào giỏ hàng</a></p>
                 <div class="name-item-image-product">
                     <div class="price-name-item-image-product">
-                        <p><a href="{{ url('products/' . $value['id']) }}">{{ $value['name'] }}</a></p>
-                        <p>{{ $value['price_regular'] }}</p>
+                        <p><a href="{{ url('product/' . $product['id']) }}">{{ $product['name'] }}</a></p>
+                        <p>{{ $product['price_regular'] }}</p>
                     </div>
                     <div class="heart-name-item-image-product">
                         <i id="bxs" onclick="addHeart()" class='bx bxs-heart'></i>
