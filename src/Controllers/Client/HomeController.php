@@ -20,6 +20,7 @@ class HomeController extends Controller
     public function index()
     {
         $categories = $this->category->all();
+        // $categories = $this->category->paginate(1,3);
 
         $page = $_GET['page'] ?? 1;
         [$products, $totalPage] = $this->product->paginate($page);
