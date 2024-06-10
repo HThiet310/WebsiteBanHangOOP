@@ -13,11 +13,10 @@
                 <div class="menu-filter-product">
                     <div class="menu-product">
                         <ul>
-                            <li><a href="">All Products</a></li>
-                            <li><a href="">Women</a></li>
-                            <li><a href="">Men</a></li>
-                            <li><a href="">Bag</a></li>
-                            <li><a href="">Shoes</a> </li>
+                            @foreach ($categories as $category)
+                                <li><a href="{{ url('categories/' . $category['id']) }}">{{ $category['name'] }}</a></li>
+                            @endforeach
+
                             <li><a href="">Watches</a></li>
                         </ul>
                     </div>
@@ -37,9 +36,10 @@
                 <div class="image-product">
                     <div class="item-image-product" data-aos="fade-up">
                         <div class="test">
-                            <img src="{{ asset('assets/client/src/img/product-3.webp') }}" width="100%" alt="">
+                            <img src="{{ asset($product['img_thumbnail']) }}" width="100%" alt="">
                         </div>
-                        <p><a onclick="showProduct()" href="{{ url('product/' . $product['id']) }}">Quick View</a></p>
+                        <p><a onclick="showProduct()" href="{{ url('product/' . $product['id']) . '/show' }}">Quick View</a>
+                        </p>
                         <div class="name-item-image-product">
                             <div class="price-name-item-image-product">
                                 <p><a href="{{ url('product/' . $product['id']) }}">{{ $product['name'] }}</a></p>
@@ -56,10 +56,29 @@
 
                 </div>
             @endforeach
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item ">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    @for ($page = 1; $page < $totalPage; $page++)
+                        <li class="page-item">
+                            <a class="page-link" href="<?php echo "?page=$page"; ?>"><?php echo $page; ?></a>
+                        </li>
+                    @endfor
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
 
             <div class="btn-product" data-aos="zoom-in-right">
                 <a href="">LOAD MORE</a>
             </div>
+
+
+
+
         </div>
 
     </div>
