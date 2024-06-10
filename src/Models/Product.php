@@ -12,16 +12,25 @@ class Product extends Model
     {
         return $this->queryBuilder
             ->select(
-                'p.id', 'p.category_id', 'p.name', 'p.img_thumbnail', 'p.price_regular', 'p.price_sale',
-                'p.created_at', 'p.updated_at', 'p.overview', 'p.content',
-                'c.name as c_name')
+                'p.id',
+                'p.category_id',
+                'p.name',
+                'p.img_thumbnail',
+                'p.price_regular',
+                'p.price_sale',
+                'p.created_at',
+                'p.updated_at',
+                'p.overview',
+                'p.content',
+                'c.name as c_name'
+            )
             ->from($this->tableName, 'p')
             ->innerJoin('p', 'categories', 'c', 'p.category_id = c.id')
             ->orderBy('p.id', 'DESC')
             ->fetchAllAssociative();
     }
 
-    public function paginate($page = 1, $perPage = 10)
+    public function paginate($page = 1, $perPage = 4)
     {
         $queryBuilder = clone ($this->queryBuilder);
 
@@ -29,9 +38,18 @@ class Product extends Model
 
         $data = $queryBuilder
             ->select(
-                'p.id', 'p.category_id', 'p.name', 'p.img_thumbnail', 'p.price_regular', 'p.price_sale',
-                'p.created_at', 'p.updated_at', 'p.overview', 'p.content',
-                'c.name as c_name')
+                'p.id',
+                'p.category_id',
+                'p.name',
+                'p.img_thumbnail',
+                'p.price_regular',
+                'p.price_sale',
+                'p.created_at',
+                'p.updated_at',
+                'p.overview',
+                'p.content',
+                'c.name as c_name'
+            )
             ->from($this->tableName, 'p')
             ->innerJoin('p', 'categories', 'c', 'p.category_id = c.id')
             ->setFirstResult($offset)
@@ -48,9 +66,18 @@ class Product extends Model
     {
         return $this->queryBuilder
             ->select(
-                'p.id', 'p.category_id', 'p.name', 'p.img_thumbnail', 'p.price_regular', 'p.price_sale',
-                'p.created_at', 'p.updated_at', 'p.overview', 'p.content',
-                'c.name as c_name')
+                'p.id',
+                'p.category_id',
+                'p.name',
+                'p.img_thumbnail',
+                'p.price_regular',
+                'p.price_sale',
+                'p.created_at',
+                'p.updated_at',
+                'p.overview',
+                'p.content',
+                'c.name as c_name'
+            )
             ->from($this->tableName, 'p')
             ->innerJoin('p', 'categories', 'c', 'p.category_id = c.id')
             ->where('p.id = ?')

@@ -11,7 +11,6 @@ use Dell\Asmphp2\Models\User;
 class HomeController extends Controller
 {
     private Product $product;
-
     private Category $category;
     public function __construct()
     {
@@ -19,19 +18,19 @@ class HomeController extends Controller
         $this->category = new Category();
     }
     public function index()
-{
-    // Lấy dữ liệu sản phẩm với phân trang
-    [$products, $totalPage] = $this->product->paginate($_GET['page'] ?? 1, 5);
+    {
+        $categories = $this->category->all();
+        // $categories = $this->category->paginate(1,3);
 
-    // Lấy tất cả danh mục
-    $categories = $this->category->all();
+        $page = $_GET['page'] ?? 1;
+        [$products, $totalPage] = $this->product->paginate($page);
 
-    // Truyền dữ liệu vào view
-    $this->renderViewClient('home', [
-        'products' => $products,
-        'categories' => $categories,
-        'totalPage' => $totalPage,
-        // 'currentPage' => $page
-    ]);
-}
+        $this->renderViewClient('home', [
+            'products' => $products,
+            'categories' => $categories,
+            'totalPage' => $totalPage,
+            'page' => $page
+        ]);
+    }
+    
 }

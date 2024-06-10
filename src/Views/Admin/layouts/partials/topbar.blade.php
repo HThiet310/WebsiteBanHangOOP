@@ -115,16 +115,18 @@
                         </li>
                     </div>
                     <div class="profile_info">
-                        <img src="{{ asset('assets/admin/img/client_img.png') }}" alt="#">
+                        <?php $user = $_SESSION['user'] ?>
+                        <img src="{{ asset($user['avatar']) }}" alt="#">
                         <div class="profile_info_iner">
                             <div class="profile_author_name">
                                 <p>Neurologist </p>
-                                <h5>Dr. Robar Smith</h5>
+                                <h5>{{ $user['name'] }}</h5>
                             </div>
                             <div class="profile_info_details">
                                 <a href="#">My Profile </a>
                                 <a href="#">Settings</a>
-                                <a href="#">Log Out </a>
+                                <a href="{{ url() }}">Trở về trang chủ </a>
+                                <a href="{{ url('/logout') }}">Đăng xuất </a>
                             </div>
                         </div>
                     </div>
