@@ -14,8 +14,29 @@ use Dell\Asmphp2\Controllers\Admin\CategoryController;
 use Dell\Asmphp2\Controllers\Admin\DashboardController;
 use Dell\Asmphp2\Controllers\Admin\ProductController;
 use Dell\Asmphp2\Controllers\Admin\UserControler;
+use Dell\Asmphp2\Controllers\Client\AuthentController;
+use Dell\Asmphp2\Controllers\Client\HomeController;
 use Dell\Asmphp2\Models\Category;
 
+$router->before('GET|POST', '/admin', function () {
+    if (!checkLogin()) {
+        header('Location:' . url('login'));
+        exit();
+    }
+
+    if (!checkLoginAdmin()) {
+        header('Location:' . url());
+        exit();
+    }
+});
+
+// Return Home
+$router->get('/home',  HomeController::class . '@index');
+
+// Logout
+$router->get('/logout', AuthentController::class . '@logout');
+
+// Admin
 $router->mount('/admin', function () use ($router) {
 
     // DASHBOARD

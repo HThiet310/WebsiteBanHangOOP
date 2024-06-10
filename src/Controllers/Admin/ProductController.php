@@ -46,9 +46,9 @@ class ProductController extends Controller
             'name'                  => 'required|max:50',
             'category_id'           => 'required|numeric',
             'price_regular'         => 'required|numeric',
-            'price_sale'            => 'required|numeric',
-            'overview'              => 'required',
-            'content'               => 'required',
+            'price_sale'            => 'nullable',
+            'overview'              => 'nullable',
+            'content'               => 'nullable',
             'img_thumbnail'         => 'uploaded_file:0,2M,png,jpg,jpeg',
         ]);
         $validation->validate();
@@ -63,7 +63,7 @@ class ProductController extends Controller
                 'name'          => $_POST['name'],
                 'category_id'   => $_POST['category_id'],
                 'price_regular' => $_POST['price_regular'],
-                'price_sale'    => $_POST['price_sale'],
+                'price_sale'    => $_POST['price_sale'] !== '' ? $_POST['price_sale'] : null,
                 'overview'      => $_POST['overview'],
                 'content'       => $_POST['content'],
             ];
@@ -117,9 +117,9 @@ class ProductController extends Controller
             'name'                  => 'required|max:50',
             'category_id'           => 'required|numeric',
             'price_regular'         => 'required|numeric',
-            'price_sale'            => 'required|numeric',
-            'overview'              => 'required',
-            'content'               => 'required',
+            'price_sale'            => 'nullable|numeric',
+            'overview'              => 'nullable',
+            'content'               => 'nullable',
             'img_thumbnail'         => 'uploaded_file:0,2M,png,jpg,jpeg',
         ]);
         $validation->validate();
@@ -134,7 +134,7 @@ class ProductController extends Controller
                 'name'          => $_POST['name'],
                 'category_id'   => $_POST['category_id'],
                 'price_regular' => $_POST['price_regular'],
-                'price_sale'    => $_POST['price_sale'],
+                'price_sale'    => $_POST['price_sale'] !== '' ? $_POST['price_sale'] : null,
                 'overview'      => $_POST['overview'],
                 'content'       => $_POST['content'],
             ];
