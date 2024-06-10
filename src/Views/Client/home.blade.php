@@ -72,6 +72,15 @@
             </div>
         </div>
 
+        <?php if (!function_exists('currency_format')) {
+            function currency_format($number, $suffix = 'đ')
+            {
+                if (!empty($number)) {
+                    return number_format($number, 0, ',', '.') . "{$suffix}";
+                }
+            }
+        }
+        ?>
         <div class="image-product">
             @foreach ($products as $product)
                 <div class="item-image-product" data-aos="fade-up">
@@ -86,7 +95,7 @@
                     <div class="name-item-image-product">
                         <div class="price-name-item-image-product">
                             <p><a href="{{ url('product/' . $product['id']) }}">{{ $product['name'] }}</a></p>
-                            <p>{{ $product['price_regular'] }} vnđ</p>
+                            <p><?php echo currency_format($product['price_regular'], 'đ'); ?></p>
                         </div>
                         <div class="heart-name-item-image-product">
                             <i id="bxs" onclick="addHeart()" class='bx bxs-heart'></i>
