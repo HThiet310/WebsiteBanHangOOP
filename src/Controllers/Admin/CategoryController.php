@@ -37,7 +37,7 @@ class CategoryController extends Controller
         $validator = new Validator;
         $validation = $validator->make($_POST + $_FILES, [
             'name'                  => 'required|max:50',
-            'img_thumbnail'                => 'uploaded_file:0,2M,png,jpg,jpeg',
+            'img_thumbnail'         => 'uploaded_file:0,2M,png,jpg,jpeg',
         ]);
         $validation->validate();
 
