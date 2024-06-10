@@ -32,8 +32,8 @@ $router->get('/register',               AuthentController::class       . '@showF
 $router->post('/register/store',        AuthentController::class       . '@store');
 
 // Contact
-$router->get('/contact',                HomeController::class       . '@index');
-$router->get('/contact/store',          HomeController::class       . '@index');
+$router->get('/contact',                ContactController::class       . '@index');
+$router->get('/contact/store',          ContactController::class       . '@index');
 
 // Product
 $router->get('/product',                ProductController::class    . '@index');

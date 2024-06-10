@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{ asset('assets/client/src/css/style.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/client/src/css/about.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/client/src/css/blog.css') }}" />
-<link rel="stylesheet" href="{{ asset('assets/client/src/css/contact.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/client/src/css/contacts.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/client/src/css/features.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/client/src/css/product.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/client/src/css/shop.css') }}" />

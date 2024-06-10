@@ -54,5 +54,17 @@
             </ul>
         </li>
 
+        <li class>
+            <a class="has-arrow" aria-expanded="false">
+                <div class="icon_menu">
+                    <img src="{{ asset('assets/admin/img/menu-icon/5.svg') }}" alt>
+                </div>
+                <span>Liên hệ</span>
+            </a>
+            <ul>
+                <li><a href="{{ url('admin/contacts') }}" >Danh sách liên hệ</a></li>
+            </ul>
+        </li>
+
     </ul>
 </nav>

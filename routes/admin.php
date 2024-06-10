@@ -14,7 +14,9 @@ use Dell\Asmphp2\Controllers\Admin\CategoryController;
 use Dell\Asmphp2\Controllers\Admin\DashboardController;
 use Dell\Asmphp2\Controllers\Admin\ProductController;
 use Dell\Asmphp2\Controllers\Admin\UserControler;
+use Dell\Asmphp2\Controllers\Client\ContactController;
 use Dell\Asmphp2\Models\Category;
+use Dell\Asmphp2\Models\Contact;
 
 $router->mount('/admin', function () use ($router) {
 
@@ -52,5 +54,15 @@ $router->mount('/admin', function () use ($router) {
         $router->get('/{id}/edit',      CategoryController::class . '@edit');
         $router->post('/{id}/update',   CategoryController::class . '@update');
         $router->get('/{id}/delete',    CategoryController::class . '@delete');
+    });
+    // CRUD CONTACT
+    $router->mount('/contacts', function () use ($router) {
+        $router->get('/',               ContactController::class . '@index');
+        $router->get('/create',         ContactController::class . '@create');
+        $router->post('/store',         ContactController::class . '@store');
+        $router->get('/{id}/show',      ContactController::class . '@show');
+        $router->get('/{id}/edit',      ContactController::class . '@edit');
+        $router->post('/{id}/update',   ContactController::class . '@update');
+        $router->get('/{id}/delete',    ContactController::class . '@delete');
     });
 });
