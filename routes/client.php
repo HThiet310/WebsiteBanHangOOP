@@ -35,11 +35,11 @@ $router->post('/register/store',        AuthentController::class       . '@store
 
 // Contact
 $router->get('/contact',                ContactController::class       . '@index');
-$router->post('/contact/store',          ContactController::class       . '@store');
+$router->post('/contact/store',         ContactController::class       . '@store');
 
 // Product
 $router->get('/product',                ProductController::class    . '@index');
-$router->get('/product/{id}/show',           ProductController::class    . '@store');
+$router->get('/product/{id}/show',      ProductController::class    . '@detail');
 
 // Category
 $router->get('/categories',             CategoryController::class    . '@index');
