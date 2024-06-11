@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Chi tiết Liên hệ - {{ $contact['name'] }}
+Chi tiết liên hệ - {{ $contact['name'] }}
 @endsection
 
 @section('content')
@@ -12,10 +12,11 @@ Chi tiết Liên hệ - {{ $contact['name'] }}
             <div class="white_card_header">
                 <div class="box_header m-0">
                     <div class="main-title">
-                        <h1 class="m-0">Chi tiết Liên hệ - {{ $contact['name'] }}</h1>
+                        <h1 class="m-0">Chi tiết liên hệ - {{ $contact['name'] }}</h1>
                     </div>
                 </div>
             </div>
+            <a class="btn btn-primary" href="{{ url('admin/contacts') }}">Trở về trang danh sách</a>
             <div class="table-responsive">
                 <table class="table table-striped" style="font-size: 17px">
                     <thead>
@@ -27,14 +28,12 @@ Chi tiết Liên hệ - {{ $contact['name'] }}
                     <tbody>
 
                         @foreach ($contact as $field => $value)
-                        <td>{{ $field }}</td>
-                            <td>
-                                @if ($field === 'img_thumbnail')
-                                <img src="{{ asset($value) }}" alt="category Image" style="max-width: 100px;">
-                                @else
+                        <tr>
+                            <td>{{ $field }}</td>
+                            <td> 
                                 {{ $value }}
-                                @endif
                             </td>
+                        </tr>
                         @endforeach
 
                     </tbody>

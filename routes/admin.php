@@ -14,14 +14,8 @@ use Dell\Asmphp2\Controllers\Admin\CategoryController;
 use Dell\Asmphp2\Controllers\Admin\DashboardController;
 use Dell\Asmphp2\Controllers\Admin\ProductController;
 use Dell\Asmphp2\Controllers\Admin\UserControler;
-<<<<<<< HEAD
-use Dell\Asmphp2\Controllers\Client\ContactController;
-=======
-use Dell\Asmphp2\Controllers\Client\AuthentController;
-use Dell\Asmphp2\Controllers\Client\HomeController;
->>>>>>> 0692280032acca05706242d31b51fe2e8db3c643
-use Dell\Asmphp2\Models\Category;
-use Dell\Asmphp2\Models\Contact;
+use Dell\Asmphp2\Controllers\Admin\ContactController;
+use Dell\Asmphp2\Controllers\Admin\OrderController;
 
 $router->before('GET|POST', '/admin', function () {
     if (!checkLogin()) {
@@ -34,12 +28,6 @@ $router->before('GET|POST', '/admin', function () {
         exit();
     }
 });
-
-// Return Home
-$router->get('/home',  HomeController::class . '@index');
-
-// Logout
-$router->get('/logout', AuthentController::class . '@logout');
 
 // Admin
 $router->mount('/admin', function () use ($router) {
@@ -79,14 +67,16 @@ $router->mount('/admin', function () use ($router) {
         $router->post('/{id}/update',   CategoryController::class . '@update');
         $router->get('/{id}/delete',    CategoryController::class . '@delete');
     });
+
     // CRUD CONTACT
     $router->mount('/contacts', function () use ($router) {
         $router->get('/',               ContactController::class . '@index');
-        $router->get('/create',         ContactController::class . '@create');
-        $router->post('/store',         ContactController::class . '@store');
         $router->get('/{id}/show',      ContactController::class . '@show');
-        $router->get('/{id}/edit',      ContactController::class . '@edit');
-        $router->post('/{id}/update',   ContactController::class . '@update');
-        $router->get('/{id}/delete',    ContactController::class . '@delete');
+    });
+
+    // CRUD ORDER
+    $router->mount('/orders', function () use ($router) {
+        $router->get('/',               CategoryController::class . '@index');
+        $router->get('/{id}/show',      CategoryController::class . '@show');
     });
 });

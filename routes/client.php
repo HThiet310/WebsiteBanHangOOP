@@ -34,17 +34,12 @@ $router->get('/register',               AuthentController::class       . '@showF
 $router->post('/register/store',        AuthentController::class       . '@store');
 
 // Contact
-<<<<<<< HEAD
 $router->get('/contact',                ContactController::class       . '@index');
-$router->get('/contact/store',          ContactController::class       . '@index');
-=======
-$router->get('/contact',                HomeController::class       . '@index');
-$router->get('/contact/store',          HomeController::class       . '@store');
->>>>>>> 0692280032acca05706242d31b51fe2e8db3c643
+$router->post('/contact/store',          ContactController::class       . '@store');
 
 // Product
 $router->get('/product',                ProductController::class    . '@index');
-$router->get('/product/{id}',           ProductController::class    . '@detail');
+$router->get('/product/store',          ProductController::class    . '@store');
 
 // Category
 $router->get('/categories',             CategoryController::class    . '@index');

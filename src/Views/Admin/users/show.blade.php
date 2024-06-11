@@ -16,6 +16,7 @@ Chi tiết tài khoản - {{ $user['email'] }}
                     </div>
                 </div>
             </div>
+            <a class="btn btn-primary" href="{{ url('admin/users') }}">Trở về trang danh sách</a>
             <div class="table-responsive">
                 <table class="table table-striped" style="font-size: 17px">
                     <thead>

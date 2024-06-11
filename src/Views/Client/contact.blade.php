@@ -1,38 +1,59 @@
 @extends('layouts.master')
 
 @section('tilte')
-Contact
+    Liên hệ
 @endsection
 
 @section('content')
-<div id="main">
-            <div class="banner">
-                <div class="text-banner">
-                    <h1>Contact</h1>
-                </div>
-
+    <div id="main">
+        <div class="banner">
+            <div class="text-banner">
+                <h1>Contact</h1>
             </div>
-            <div class="grid">
-                <div class="left-grid" data-aos="fade-right">
-                    <h3>Send Us A Message</h3>
-                   <form action="{{ url('admin/contact/store') }}"  onsubmit="return validate()" enctype="multipart/form-data" method="POST">
-                    <div class="">
-                        <input type="text" id="address" placeholder=" Your Name">
-                        <input type="text" id="address" placeholder=" Your Phone">
-                        <input type="text" id="address" placeholder=" Your email Address">
 
+        </div>
+
+        <div class="SignIn">
+            <div class="error">
+                @if (isset($_SESSION['status']) && $_SESSION['status'])
+                    <div class="alert alert-success">
+                        {{ $_SESSION['msg'] }}
                     </div>
 
-                    <div class="">
-                        <input type="text" id="note" placeholder="How can we help  ?">
-                    </div>
-                    <div class="">
-                        <div class="">
-                            <input type="submit" name="" value="SUBMIT" id="">
+                    @php
+                        unset($_SESSION['status']);
+                        unset($_SESSION['msg']);
+                    @endphp
+                @endif
+            </div>
+            <div class="form-SignIn">
+                <div class="left-form-Sign-In">
+                    <form action="{{ url('contact/store') }}" method="POST">
+                        <div class="inpt-form-sign-in">
+                            <p>Họ tên:</p>
+                            <input type="text" name="name" id="name" placeholder="Enter your name ">
                         </div>
-                    </div>
-                   </form>
-                </div>
-    
+                        <div class="inpt-form-sign-in">
+                            <p>Số điện thoại:</p>
+                            <input type="number" name="phone" id="phone" placeholder="Enter your phone ">
+                        </div>
+                        <div class="inpt-form-sign-in">
+                            <p>Địa chỉ :</p>
+                            <input type="text" name="address" id="address" placeholder="Enter your address ">
+                        </div>
+                        <div class="inpt-form-sign-in">
+                            <p>Vấn đề cần liên hệ :</p>
+                            <input type="text" name="content" id="content" placeholder="">
+                        </div>
 
+                        <div class="btn-signIn">
+                            <div class="right-btn-signnIn">
+                                <button type="submit">Gửi</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

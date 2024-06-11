@@ -16,6 +16,7 @@ Chi tiết sản phẩm - {{ $product['name'] }}
                     </div>
                 </div>
             </div>
+            <a class="btn btn-primary" href="{{ url('admin/products') }}">Trở về trang danh sách</a>
             <div class="table-responsive">
                 <table class="table table-striped" style="font-size: 17px">
                     <thead>

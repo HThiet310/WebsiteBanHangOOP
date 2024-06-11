@@ -62,7 +62,7 @@
                 <span>Liên hệ</span>
             </a>
             <ul>
-                <li><a href="{{ url('admin/contacts') }}" >Danh sách liên hệ</a></li>
+                <li><a href="{{ url('admin/contacts/') }}" >Danh sách liên hệ</a></li>
             </ul>
         </li>
 
