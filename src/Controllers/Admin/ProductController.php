@@ -22,11 +22,13 @@ class ProductController extends Controller
 
     public function index()
     {
-        [$products, $totalPage] = $this->product->paginate($_GET['page'] ?? 1);
+        $page = $_GET['page'] ?? 1;
+        [$products, $totalPage] = $this->product->paginate($page);
 
         $this->renderViewAdmin('products.index', [
             'products' => $products,
-            'totalPage' => $totalPage
+            'totalPage' => $totalPage,
+            'page' => $page
         ]);
     }
 

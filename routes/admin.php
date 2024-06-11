@@ -76,7 +76,7 @@ $router->mount('/admin', function () use ($router) {
 
     // CRUD ORDER
     $router->mount('/orders', function () use ($router) {
-        $router->get('/',               CategoryController::class . '@index');
-        $router->get('/{id}/show',      CategoryController::class . '@show');
+        $router->get('/',               OrderController::class . '@index');
+        $router->get('/{id}/show',      OrderController::class . '@show');
     });
 });

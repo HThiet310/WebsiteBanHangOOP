@@ -31,19 +31,6 @@
         <li class>
             <a class="has-arrow" aria-expanded="false">
                 <div class="icon_menu">
-                    <img src="{{ asset('assets/admin/img/menu-icon/2.svg') }}" alt>
-                </div>
-                <span>Sản phẩm</span>
-            </a>
-            <ul>
-                <li><a href="{{ url('admin/products') }}" >Danh sách sản phẩm</a></li>
-                <li><a href="{{ url('admin/products/create') }}">Thêm sản phẩm</a></li>
-            </ul>
-        </li>
-
-        <li class>
-            <a class="has-arrow" aria-expanded="false">
-                <div class="icon_menu">
                     <img src="{{ asset('assets/admin/img/menu-icon/5.svg') }}" alt>
                 </div>
                 <span>Danh mục sản phẩm</span>
@@ -57,7 +44,32 @@
         <li class>
             <a class="has-arrow" aria-expanded="false">
                 <div class="icon_menu">
-                    <img src="{{ asset('assets/admin/img/menu-icon/5.svg') }}" alt>
+                    <img src="{{ asset('assets/admin/img/menu-icon/2.svg') }}" alt>
+                </div>
+                <span>Sản phẩm</span>
+            </a>
+            <ul>
+                <li><a href="{{ url('admin/products') }}" >Danh sách sản phẩm</a></li>
+                <li><a href="{{ url('admin/products/create') }}">Thêm sản phẩm</a></li>
+            </ul>
+        </li>
+
+        <li class>
+            <a class="has-arrow" aria-expanded="false">
+                <div class="icon_menu">
+                    <img src="{{ asset('assets/admin/img/menu-icon/7.svg') }}" alt>
+                </div>
+                <span>Đơn hàng</span>
+            </a>
+            <ul>
+                <li><a href="{{ url('admin/orders') }}" >Danh sách Đơn hàng</a></li>
+            </ul>
+        </li>
+
+        <li class>
+            <a class="has-arrow" aria-expanded="false">
+                <div class="icon_menu">
+                    <img src="{{ asset('assets/admin/img/menu-icon/3.svg') }}" alt>
                 </div>
                 <span>Liên hệ</span>
             </a>

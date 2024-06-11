@@ -28,7 +28,7 @@ class OrderController extends Controller
 
     public function checkout()
     {
-        // Chưa đăng nhập thì fai tạo tài khoản
+        // Chưa đăng nhập thì Phải tạo tài khoản
         $userID = $_SESSION['user']['id'] ?? null;
         if (!$userID) {
             $conn = $this->user->getConnection();

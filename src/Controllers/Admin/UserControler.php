@@ -18,12 +18,13 @@ class UserControler extends Controller
 
     public function index()
     {
-        [$users, $totalPage] = $this->user->paginate($_GET['page'] ?? 1);
-        $users = $this->user->all();
+        $page = $_GET['page'] ?? 1;
+        [$users, $totalPage] = $this->user->paginate($page);
 
         $this->renderViewAdmin('users.index', [
             'users' => $users,
-            'totalPage' => $totalPage
+            'totalPage' => $totalPage,
+            'page' => $page
         ]);
     }
 
