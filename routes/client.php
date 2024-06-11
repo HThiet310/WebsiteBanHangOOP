@@ -39,7 +39,7 @@ $router->post('/contact/store',          ContactController::class       . '@stor
 
 // Product
 $router->get('/product',                ProductController::class    . '@index');
-$router->get('/product/store',          ProductController::class    . '@store');
+$router->get('/product/{id}/show',           ProductController::class    . '@store');
 
 // Category
 $router->get('/categories',             CategoryController::class    . '@index');

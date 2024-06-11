@@ -86,7 +86,7 @@
                 <div class="item-image-product" data-aos="fade-up">
                     <div class="test">
                         <!-- test link ảnh tạm thời -->
-                        <a href="{{ url('product/' . $product['id']) }}"><img src="{{ asset($product['img_thumbnail']) }}"
+                        <a href="{{ url('product/' . $product['id']) . '/show' }}"><img src="{{ asset($product['img_thumbnail']) }}"
                                 width="280px" height="300px" alt=""></a>
                     </div>
                     <p><a onclick="showProduct()"
@@ -94,7 +94,7 @@
                     </p>
                     <div class="name-item-image-product">
                         <div class="price-name-item-image-product">
-                            <p><a href="{{ url('product/' . $product['id']) }}">{{ $product['name'] }}</a></p>
+                            <p><a href="{{ url('product/' . $product['id']) . '/show' }}">{{ $product['name'] }}</a></p>
                             <p><?php echo currency_format($product['price_regular'], 'đ'); ?></p>
                         </div>
                         <div class="heart-name-item-image-product">
